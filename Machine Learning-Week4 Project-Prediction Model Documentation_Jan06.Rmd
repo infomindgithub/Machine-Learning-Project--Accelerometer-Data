@@ -60,9 +60,9 @@ Data_Training <- Data_Training3[inTrain, ]
 Data_validation <- Data_Training3[-inTrain, ]
 
 
-# Models Fitted: Multiple models are fitted to Data_Training. Then prediction accuracy is determined using the Data_validation dataset. The model with highest accuracy is applied to the test data set. Random Forest model, to see if it would have acceptable performance. I fit the model on Data_Training1, and instruct the "train" function to use 3-fold cross-validation to select optimal tuning parameters for the model.
+# Models Fitted: Two models are fitted to Data_Training ("rf" model below", and the "lda" model analysis documented in Appendix A). Then prediction accuracy is determined using the Data_validation dataset. The model is applied to the test data set. Fitted the models on Data_Training, and used the "train" function with 3-fold cross-validation for selecting the appropriate tuning parameters for the model.
 
-# Cross Validation: Use 3-fold cross-validation (CV) to select optimal tuning parameters.
+# Cross Validation:
 
 fitControl <- trainControl(method="cv", number=3, verboseIter=F)
 

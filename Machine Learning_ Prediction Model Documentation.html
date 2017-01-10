@@ -265,9 +265,9 @@ $(document).ready(function () {
 <span class="identifier">Data_validation</span> <span class="operator">&lt;-</span> <span class="identifier">Data_Training3</span><span class="paren">[</span><span class="operator">-</span><span class="identifier">inTrain</span>, <span class="paren">]</span>
 
 
-<span class="comment"># Models Fitted: Multiple models are fitted to Data_Training. Then prediction accuracy is determined using the Data_validation dataset. The model with highest accuracy is applied to the test data set. Random Forest model, to see if it would have acceptable performance. I fit the model on Data_Training1, and instruct the "train" function to use 3-fold cross-validation to select optimal tuning parameters for the model.</span>
+<span class="comment"># Models Fitted: Two models are fitted to Data_Training ("rf" model below", and the "lda" model analysis documented in Appendix A). Then prediction accuracy is determined using the Data_validation dataset. The model is applied to the test data set. Fitted the models on Data_Training, and used the "train" function with 3-fold cross-validation for selecting the appropriate tuning parameters for the model.</span>
 
-<span class="comment"># Cross Validation: Use 3-fold cross-validation (CV) to select optimal tuning parameters.</span>
+<span class="comment"># Cross Validation:</span>
 
 <span class="identifier">fitControl</span> <span class="operator">&lt;-</span> <span class="identifier">trainControl</span><span class="paren">(</span><span class="identifier">method</span><span class="operator">=</span><span class="string">"cv"</span>, <span class="identifier">number</span><span class="operator">=</span><span class="number">3</span>, <span class="identifier">verboseIter</span><span class="operator">=</span><span class="literal">F</span><span class="paren">)</span>
 
@@ -376,18 +376,10 @@ $(document).ready(function () {
 <div id="appendix-a---fitting-linear-discriminant-analysis-lda-model" class="section level4">
 <h4>Appendix A - Fitting Linear Discriminant Analysis (“lda”) Model</h4>
 <pre class="r"><code class="r"><span class="keyword">library</span><span class="paren">(</span><span class="identifier">ggplot2</span><span class="paren">)</span>
-<span class="keyword">library</span><span class="paren">(</span><span class="identifier">caret</span><span class="paren">)</span></code></pre>
-<pre><code>## Loading required package: lattice</code></pre>
-<pre class="r"><code class="r"><span class="keyword">library</span><span class="paren">(</span><span class="identifier">dplyr</span><span class="paren">)</span></code></pre>
-<pre><code>## 
-## Attaching package: 'dplyr'</code></pre>
-<pre><code>## The following objects are masked from 'package:stats':
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code class="r"><span class="comment"># Use 3-fold cross-validation (CV) to select optimal tuning parameters</span>
+<span class="keyword">library</span><span class="paren">(</span><span class="identifier">caret</span><span class="paren">)</span>
+<span class="keyword">library</span><span class="paren">(</span><span class="identifier">dplyr</span><span class="paren">)</span>
+
+<span class="comment"># Use 3-fold cross-validation (CV) to select optimal tuning parameters</span>
 <span class="identifier">fitControl_lda</span> <span class="operator">&lt;-</span> <span class="identifier">trainControl</span><span class="paren">(</span><span class="identifier">method</span><span class="operator">=</span><span class="string">"cv"</span>, <span class="identifier">number</span><span class="operator">=</span><span class="number">3</span>, <span class="identifier">verboseIter</span><span class="operator">=</span><span class="literal">F</span><span class="paren">)</span>
 
 <span class="comment"># Fit model on Data_Training</span>
